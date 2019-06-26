@@ -1,0 +1,50 @@
+Main Processing Stages
+======================
+
+Get the data
+-read in text from file
+-remove all punctuation
+-convert to lowercase
+-get all trigrams - 3 adjacent words split into key and value (2+1)
+-store keys and values in collection
+
+Use the data
+-chose arbitrary starting point
+-look up associated keys and pick value at random
+-use end of key and value as next key
+-repeat until no keys are found - or predetermined sentence length is met
+-repeat process to generate lots of sentences
+-repeat to generate specified sentences
+-each sentence should start with capital and end with period
+-write data to output file
+
+
+STORE DATA
+==========
+
+- for each line in file
+	- remove punctuation
+	- convert to lowercase
+	- count words and determine the number of trigrams
+	- for number of trigrams
+		- get key and value and store in map
+
+Note that number of n-grams is wordcount - (nGramFactor -1)
+This was determined by doing some simple calculation on varying wordcounts and factors and spotting patterns
+
+
+GENERATE STORY
+==============
+
+- determine number of paragraphs to generate
+- determine number of lines to generate
+- determine number of words per line
+- for each line in story
+	- create empty line string
+	- choose random key, capitalise first letter and add to line string
+	- for number of words -1
+		- for last key, choose random value from map and append to line string
+		- generate next key using last word of last key and new value
+	- add full stop to end of line line
+	- write line string to output
+	

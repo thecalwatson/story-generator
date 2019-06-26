@@ -1,0 +1,72 @@
+Initial Actions
+================
+Read project specification
+- need to know and understand what is required from final solution
+Choose technology to use to solve the problem
+- java/eclipse/junit/log4j are all common to me and suitable for this task
+Create 'empty' java project
+- basis for implementation, structured with src/test/cfg folders etc.
+- also create main class and test with 'hello world' to make sure project is set up correctly
+- create properties handling as anticipate using configuration with project
+Get test data
+- create test input file using "I wish I may I wish I might" in project specification
+- initial aim is to create data in storage that matches the structure in specification
+- download full plain text file from gutenberg link
+
+
+Design Stage
+=============
+Write pseudo-code for processing stages - see Design.txt
+- break problem into 3 main processing stages - input/generation/ouput
+Create classes for each object in application
+- Kata14 - main method to handle properties and create and interact with objects needed for processing
+- DataReader - class to read from input file, and return data in collection
+- StoryGenerator - use storage and create new story using trigram logic
+- StoryWriter - take output story and write to file
+- StringFormatter - class with static methods which are re-useable when performing common formatting tasks on text
+
+Implementation Stage
+====================
+Create instances of required components in main method
+Decide on data storage format - see notes below
+Work on each processing stage in turn
+- create calls to methods on processing components
+- implement method in full
+- test by debug and looking at output
+Run entire program using all components
+- test with variety of inputs
+
+Test Stage
+===========
+(This should have been done during implementation but got caught up in trying to get project to work)
+Create JUnit test class for each method of each source class
+Define test cases and add for each method
+Use eclemma to check test coverage
+
+
+Final Stages
+============
+Strip out all debug statements
+Add or improve commentary to explain each class, method and complex handling
+Create usage document
+Export project in zip file
+
+
+Notes on Data Storage
+======================
+I initially thought a regular map data structure should be used to hold keys and values. However, with trigrams we can have multiple values for a given key.
+From searching the web I discovered that apache commons collections has a MultiValueMap which was ideal for the purpose.
+After implementing this I read that I could have actually simulated the multi-map like so:
+
+        Map<String, List<String>> m = new HashMap<String, List<String>>();
+
+Google collections also have a MultiMap implementation but never looked into that.
+
+
+Extensions
+===========
+Better handling of text
+- words with apostrophes like isn't, can't etc.
+- clever handling of quotes in text
+- proper nouns
+- handling of dashes
