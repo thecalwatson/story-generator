@@ -47,8 +47,11 @@ public class StoryGenerator
 				// Set value to empty String
 				value = "";
 
+				// Determine number of words in sentence we are going to generate
+				int wordsToGenerate = getRandom(numWords -2);
+
 				// Get the rest of the words to make up the sentence
-				for (int i = 0; i < numWords - 2; i++)
+				for (int i = 0; i < wordsToGenerate; i++)
 				{
 					// Look up map for a random value to go with key
 					if (multiMap.containsKey(key))

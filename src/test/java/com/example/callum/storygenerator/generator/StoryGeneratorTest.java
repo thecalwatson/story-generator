@@ -54,7 +54,7 @@ public class StoryGeneratorTest
 		// Check we generate a StringBuffer
 		MultiValueMap map = new MultiValueMap();
 		DataReader dr = new DataReader();
-		map = dr.readData("testFiles/AliceInWonderland.txt", 3);
+		map = dr.readData("input/TomSawyer.txt", 3);
 		StoryGenerator sg = new StoryGenerator();
 		StringBuffer output = sg.generateStory(map, 1, 1, 7);
 
